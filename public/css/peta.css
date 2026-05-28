@@ -1,0 +1,93 @@
+:root{
+  --green:#2F6B47;--green-light:#E6F0EA;--orange:#E67E22;
+  --bg:#F9F6EF;--card:#fff;--text:#2C3A2B;--muted:#5C6E5A;
+  --border:#E8E2D4;--r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* TOPBAR */
+.topbar{height:56px;background:var(--green);display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;flex-shrink:0;z-index:100}
+.topbar-logo{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.3rem;color:#fff}
+.topbar-logo span{color:#FFD580}
+.topbar-sub{font-size:.75rem;opacity:.7;font-weight:400;margin-left:6px}
+.topbar-right{display:flex;gap:10px;align-items:center}
+.topbar-right a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.83rem;font-weight:500;padding:.35rem .9rem;border-radius:60px;border:1px solid rgba(255,255,255,.25);transition:.2s}
+.topbar-right a:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* MAIN LAYOUT */
+.main{display:flex;flex:1;overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{width:340px;flex-shrink:0;background:var(--card);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto}
+.sidebar-head{padding:1.2rem 1.4rem .8rem;border-bottom:1px solid var(--border)}
+.sidebar-head h2{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800}
+.sidebar-head p{font-size:.75rem;color:var(--muted);margin-top:2px}
+.sidebar-body{padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:1.1rem;flex:1}
+
+.field-label{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--orange);margin-bottom:5px}
+
+/* GPS button */
+.gps-btn{width:100%;padding:.7rem;border-radius:60px;border:1.5px solid var(--border);background:var(--green-light);color:var(--green);font-weight:700;font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;font-family:'Inter',sans-serif}
+.gps-btn:hover{background:#d4e8da}
+.gps-btn.detected{background:var(--green);color:#fff;border-color:var(--green)}
+.coord-box{background:#F3F0EA;border-radius:10px;padding:.5rem .8rem;font-size:.72rem;font-family:monospace;color:var(--text);margin-top:5px;min-height:28px}
+
+/* Select */
+.dest-select{width:100%;padding:.65rem 1rem;border-radius:var(--r);border:1.5px solid var(--border);font-family:'Inter',sans-serif;font-size:.85rem;color:var(--text);outline:none;background:white;transition:.2s}
+.dest-select:focus{border-color:var(--green)}
+
+/* Route button */
+.route-btn{width:100%;padding:.8rem;border-radius:60px;border:none;background:var(--green);color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.route-btn:hover:not(:disabled){background:#23563a;transform:translateY(-1px)}
+.route-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* Status */
+.status-bar{font-size:.75rem;color:var(--muted);text-align:center;padding:.4rem;min-height:24px}
+.status-bar.ok{color:var(--green);font-weight:600}
+.status-bar.err{color:#E74C3C;font-weight:600}
+
+/* Info boxes */
+.info-box{background:var(--green-light);border-radius:var(--r);padding:.9rem 1rem;display:none;border:1px solid #c3ddc8}
+.info-box.show{display:block}
+.ib-label{font-size:.63rem;text-transform:uppercase;letter-spacing:1px;color:var(--green);font-weight:800;margin-bottom:3px}
+.ib-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem;color:var(--text)}
+
+/* Route result */
+.route-result{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:1rem;display:none}
+.route-result.show{display:block}
+.rr-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:.95rem;margin-bottom:.8rem;color:var(--green)}
+.rr-row{display:flex;justify-content:space-between;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--border)}
+.rr-row:last-child{border-bottom:none}
+.rr-key{font-size:.7rem;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.rr-val{font-family:'Outfit',sans-serif;font-weight:700;font-size:.9rem}
+.badge-jalan{display:inline-block;padding:3px 12px;border-radius:60px;font-size:.72rem;font-weight:700}
+
+/* Legend */
+.legend{background:var(--bg);border-top:1px solid var(--border);padding:.8rem 1.4rem}
+.legend-title{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.5rem}
+.legend-items{display:flex;flex-direction:column;gap:.3rem}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:.75rem;color:var(--text)}
+.leg-line{width:28px;height:4px;border-radius:2px;flex-shrink:0}
+
+/* MAP */
+#map{flex:1}
+
+/* Popup */
+.leaflet-popup-content-wrapper{border-radius:16px!important;box-shadow:0 8px 24px rgba(0,0,0,.12)!important;border:1px solid var(--border)!important;padding:0!important}
+.leaflet-popup-content{margin:0!important}
+.popup-inner{padding:12px 14px}
+.popup-name{font-family:'Outfit',sans-serif;font-weight:800;color:var(--green);font-size:.95rem}
+.popup-addr{font-size:.74rem;color:var(--muted);margin-top:2px}
+.popup-jam{font-size:.7rem;color:var(--muted);margin-top:2px}
+.popup-dist{margin-top:6px;font-weight:700;font-size:.82rem}
+.popup-btn{width:100%;margin-top:8px;padding:6px 0;background:var(--green);color:#fff;border:none;border-radius:60px;font-weight:700;font-size:.78rem;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s}
+.popup-btn:hover{background:#23563a}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .main{flex-direction:column}
+  .sidebar{width:100%;height:auto;max-height:55vh;border-right:none;border-bottom:1px solid var(--border)}
+  #map{min-height:45vh}
+  body{overflow:auto}
+}
